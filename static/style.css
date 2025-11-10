@@ -48,11 +48,15 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: #fff;
+    background: white;
+    position: relative;
 }
 
 .right-card {
     flex: 1;
     background: linear-gradient(135deg, #1e3a8a, #0f172a);
+    opacity: 0.9;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -60,6 +64,12 @@ main {
     justify-content: center;
     padding: 20px;
     position: relative;
+}
+
+.user-fullname{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .login-text {
@@ -72,6 +82,7 @@ main {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: black;
 }
 
 .status {

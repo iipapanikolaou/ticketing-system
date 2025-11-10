@@ -34,7 +34,6 @@ main {
 
 .container {
     display: flex;
-    background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -44,11 +43,10 @@ main {
 
 .left-card {
     flex: 2;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: #fff;
+    /*justify-content: center;*/
     background: white;
     position: relative;
 }
@@ -70,6 +68,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .login-text {
@@ -81,29 +82,16 @@ main {
 .title {
     font-size: 32px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin:0px;
     color: black;
+
 }
 
 .status {
     font-size: 18px;
     color: #555;
     margin-bottom: 15px;
-}
-
-.progress-bar {
-    width: 80%;
-    height: 6px;
-    background: #e0e0e0;
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.progress {
-    width: 40%;
-    height: 100%;
-    background: #3b82f6;
-    transition: width 0.5s ease;
+    text-align: center;
 }
 
 .profile-circle {
@@ -114,6 +102,13 @@ main {
     margin-bottom: 15px;
 }
 
+.avatar {
+  vertical-align: middle;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
 .name {
     font-size: 16px;
     font-weight: bold;
@@ -122,13 +117,7 @@ main {
 }
 
 .attention {
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.version {
     font-size: 12px;
-    position: absolute;
-    bottom: 10px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
 }

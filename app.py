@@ -41,5 +41,31 @@ def after_request(response):
 def index():
     return render_template("index.html")
 
+@app.route("/login", methods = ["GET","POST"])
+def login():
+
+    if request.method == "GET":
+    
+        return render_template("login.html")
+    
+    elif request.method == "POST":
+
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        app.logger.debug('username:')
+        app.logger.debug(username)
+        app.logger.debug('password')
+        app.logger.debug(password)
+        if username is None or password is None:
+            flash("Invalid username or password")
+            return render_template("login.html")
+        
+        flash("ela re")
+        return render_template("login.html")
+    
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -121,3 +121,14 @@ main {
     text-align: center;
     font-family:'Courier New', Courier, monospace
 }
+
+
+.alert-wrapper {
+    position: fixed; /* independent of body flex */
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    z-index: 9999;
+}

@@ -3,3 +3,5 @@ flask_session
 sqlite3
 werkzeug.security
 requests
+re
+functools

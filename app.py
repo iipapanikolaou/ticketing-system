@@ -1,7 +1,6 @@
 import sqlite3
 import re
 import requests
-from helpers import login_required
 
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session

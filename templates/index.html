@@ -9,8 +9,12 @@
     <div class="text-center">
         <h1 style="color:aliceblue;">Hello! {{ firstName }} {{ lastName }}</h1>
         <p style="color:aliceblue;">Welcome to the financial services ticketing app!</p>
+        <form action="/logout" method="get">
+            <button type="submit" class="btn btn-primary">Log out</button>
+        </form>
     </div>
 </div>
+
 
 
 {% endblock %}

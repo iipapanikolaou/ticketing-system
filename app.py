@@ -31,7 +31,7 @@ def index():
 
     firstName = session["first_name"]
     lastName = session["last_name"]
-    return render_template("index.html",firstName,lastName)
+    return render_template("index.html",firstName = firstName,lastName = lastName)
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
@@ -59,23 +59,26 @@ def login():
 
         payload = {"username":username,"password":password}
 
-        dbResponse = requests.post(
-            method = "POST",
+        authResponse = requests.post(
             url=url,
             headers=headers,
             json=payload,
             verify=False
         )
 
-        app.logger.debug(dbResponse)
+        if not authResponse.ok:
 
-        session["first_name"] = dbResponse["firstName"]
-        session["last_name"] = dbResponse["lastName"]
-        session["profile_pic_url"] = dbResponse["image"]
-        session["user_id"]  =dbResponse["id"]
+            flash("Invalid username or password")
+            return redirect('/login')
+        
+        authResponseJSON = authResponse.json()
 
-        return redirect("index.html")
-
+        session["first_name"] = authResponseJSON["firstName"]
+        session["last_name"] = authResponseJSON["lastName"]
+        session["profile_pic_url"] = authResponseJSON["image"]
+        session["user_id"]  =authResponseJSON["id"]
+    
+        return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)

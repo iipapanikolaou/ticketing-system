@@ -5,7 +5,6 @@ import requests
 
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
-from flask_login import login_required
 from werkzeug.security import check_password_hash, generate_password_hash
 from helpers import login_required
 
@@ -16,9 +15,9 @@ app = Flask(__name__)
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-
-# Initialize Session
 Session(app)
+
+
 
 @app.after_request
 def after_request(response):

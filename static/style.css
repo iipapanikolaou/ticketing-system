@@ -21,11 +21,13 @@ main {
   align-items: center;
   width: auto;
   height: auto;
+  z-index: 1;
 }
 
 
 #canvas {
   position: fixed;
+  background-color: white;
   top: 0;
   left: 0;
   width: 100%;
@@ -134,4 +136,21 @@ main {
     display: flex;
     justify-content: center; /* centers horizontally */
     z-index: 9999;
+}
+
+.navbar-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+.ticket-row {
+    cursor: pointer;
+}
+.ticket-row:hover {
+    background-color: #f8f9fa;
+}
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
 }

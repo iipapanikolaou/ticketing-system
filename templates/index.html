@@ -4,17 +4,69 @@
 
 {% block main %}
 
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+        <div class="d-flex align-items-center gap-3">
+            <a href="javascript:history.back()" class="btn btn-outline-light btn-sm">⬅ Back</a>
+            <a href="javascript:location.reload()" class="btn btn-outline-light btn-sm">🔄 Reload</a>
+        </div>
+        <div class="mx-auto navbar-title text-white">Ticket Dashboard</div>
+        <div class="d-flex align-items-center gap-3">
+            <span id="username" class="text-white">User Name</span>
+            <img src="profile-icon.png" alt="Profile" class="profile-icon">
+            <form action="/logout" method="POST" style="display:inline;">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
 
-<div class="container d-flex vh-100 justify-content-center align-items-center">
-    <div class="text-center">
-        <h1 style="color:aliceblue;">Hello! {{ firstName }} {{ lastName }}</h1>
-        <p style="color:aliceblue;">Welcome to the financial services ticketing app!</p>
-        <form action="/logout" method="get">
-            <button type="submit" class="btn btn-primary">Log out</button>
-        </form>
+        </div>
+    </nav>
+
+    <!-- Container -->
+    <div class="container mt-4">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered align-middle">
+                <thead class="table">
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example rows -->
+                    <tr class="ticket-row" onclick="viewTicket(101)">
+                        <td>101</td>
+                        <td>Login Issue</td>
+                        <td>2025-11-10</td>
+                        <td>Technical</td>
+                        <td><span class="badge bg-success">Open</span></td>
+                    </tr>
+                    <tr class="ticket-row" onclick="viewTicket(102)">
+                        <td>102</td>
+                        <td>Payment Error</td>
+                        <td>2025-11-11</td>
+                        <td>Billing</td>
+                        <td><span class="badge bg-secondary">Closed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
 
+{% endblock %}
+
+{% block script %}
+    <script>
+        function viewTicket(ticketId) {
+            window.location.href = `/ticket?id=${ticketId}`;
+        }
+
+        function logout() {
+            window.location.href = "/logout";
+        }
+    </script>
 
 {% endblock %}

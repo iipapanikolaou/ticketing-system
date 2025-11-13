@@ -1,6 +1,5 @@
 import sqlite3
 import re
-import helpers
 import requests
 
 from flask import Flask, flash, redirect, render_template, request, session
@@ -11,13 +10,12 @@ from helpers import login_required
 
 # Configure application
 app = Flask(__name__)
+app.secret_key = "supersecretkey"
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-
-
 
 @app.after_request
 def after_request(response):
@@ -33,7 +31,8 @@ def index():
 
     firstName = session["first_name"]
     lastName = session["last_name"]
-    return render_template("index.html",firstName = firstName,lastName = lastName)
+    profile_pic_url = session["profile_pic_url"]
+    return render_template("index.html",firstName = firstName,lastName = lastName,profile_pic_url=profile_pic_url)
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
@@ -82,7 +81,8 @@ def login():
     
         return redirect("/")
     
-@app.route("/logout")
+@app.route("/logout",methods=["POST"])
+@login_required
 def logout():
 
     session.clear()

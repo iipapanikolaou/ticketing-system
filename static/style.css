@@ -7,12 +7,8 @@ html, body {
   height: 100%;
 }
 
-body {
-  display: flex;
-  justify-content: center;   /* Centers horizontally */
-  align-items: center;       /* Centers vertically */
+body {    /* Centers vertically */
   background: #0f0f0f;       /* Dark background for animation */
-  overflow: hidden;
 }
 
 main {
@@ -24,97 +20,6 @@ main {
   z-index: 1;
 }
 
-.container {
-    display: flex;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    width: 700px;
-    height: 350px;
-}
-
-.left-card {
-    flex: 2;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    /*justify-content: center;*/
-    background: white;
-    position: relative;
-}
-
-.right-card {
-    flex: 1;
-    background: linear-gradient(135deg, #1e3a8a, #0f172a);
-    opacity: 0.9;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-}
-
-.user-fullname{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.login-text {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.title {
-    font-size: 32px;
-    font-weight: bold;
-    margin:0px;
-    color: black;
-
-}
-
-.status {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.profile-circle {
-    width: 80px;
-    height: 80px;
-    background: #ccc;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.avatar {
-  vertical-align: middle;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.name {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.attention {
-    font-size: 12px;
-    text-align: center;
-    font-family:'Courier New', Courier, monospace
-}
-
-
 .alert-wrapper {
     position: fixed; /* independent of body flex */
     top: 20px;
@@ -123,21 +28,4 @@ main {
     display: flex;
     justify-content: center; /* centers horizontally */
     z-index: 9999;
-}
-
-.navbar-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-.ticket-row {
-    cursor: pointer;
-}
-.ticket-row:hover {
-    background-color: #f8f9fa;
-}
-.profile-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
 }

@@ -30,10 +30,7 @@ def after_request(response):
 @login_required
 def index():
 
-    firstName = session["first_name"]
-    lastName = session["last_name"]
-    profile_pic_url = session["profile_pic_url"]
-    return render_template("index.html",firstName = firstName,lastName = lastName,profile_pic_url=profile_pic_url)
+    return render_template("index.html")
 
 @app.route("/login", methods = ["GET","POST"])
 def login():

@@ -13,6 +13,7 @@ def init_db():
             email TEXT NOT NULL UNIQUE,
             username TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,
+            profile_image TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
             changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );

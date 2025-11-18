@@ -3,24 +3,6 @@
 {% block title %}Cockpit{% endblock %}
 
 {% block main %}
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-        <div class="d-flex align-items-center gap-3">
-            <a href="javascript:history.back()" class="btn btn-outline-light btn-sm">⬅ Back</a>
-            <a href="javascript:location.reload()" class="btn btn-outline-light btn-sm">🔄 Reload</a>
-        </div>
-        <div class="mx-auto navbar-title text-white">Ticket Dashboard</div>
-        <div class="d-flex align-items-center gap-3">
-            <span id="username" class="text-white">User Name</span>
-            <img src="profile-icon.png" alt="Profile" class="profile-icon">
-            <form action="/logout" method="POST" style="display:inline;">
-                <button type="submit" class="logout-btn">Logout</button>
-            </form>
-
-        </div>
-    </nav>
-
     <!-- Container -->
     <div class="container mt-4">
         <div class="table-responsive">
@@ -68,5 +50,6 @@
             window.location.href = "/logout";
         }
     </script>
+
 
 {% endblock %}

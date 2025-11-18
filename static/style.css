@@ -25,3 +25,11 @@ main {
     justify-content: center; /* centers horizontally */
     z-index: 9999;
 }
+
+
+.dropdown-menu {
+    position: absolute !important;
+    max-width: 200px; /* Prevent overflow */
+    overflow-wrap: break-word;
+    z-index: 1050; /* Above other elements */
+}

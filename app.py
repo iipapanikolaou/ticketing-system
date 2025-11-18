@@ -78,8 +78,8 @@ def login():
         session["first_name"] = authResponseJSON["firstName"]
         session["last_name"] = authResponseJSON["lastName"]
         session["profile_pic_url"] = authResponseJSON["image"]
-        session["user_id"]  =authResponseJSON["id"]
-    
+        session["user_id"]  = authResponseJSON["id"]
+        
         return redirect("/")
     
 @app.route("/logout",methods=["POST"])

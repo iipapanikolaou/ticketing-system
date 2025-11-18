@@ -10,6 +10,7 @@ from helpers import login_required
 
 # Configure application
 app = Flask(__name__)
+app.debug = True
 app.secret_key = "supersecretkey"
 
 # Configure session to use filesystem (instead of signed cookies)
@@ -87,6 +88,3 @@ def logout():
 
     session.clear()
     return redirect("/")
-
-if __name__ == "__main__":
-    app.run(debug=True)

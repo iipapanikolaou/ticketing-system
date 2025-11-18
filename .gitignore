@@ -1,6 +1,11 @@
 #Session data generated at runtime
 flask_session/
 
+# Ignore SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

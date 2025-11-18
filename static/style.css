@@ -7,10 +7,6 @@ html, body {
   height: 100%;
 }
 
-body {    /* Centers vertically */
-  background: #0f0f0f;       /* Dark background for animation */
-}
-
 main {
   display: flex;
   justify-content: center;

@@ -4,17 +4,17 @@
 
 {% block main %}
 
-    <div>
+    <div class="text-white">
         <!--<div class="profile-circle"><img id="profile-avatar" src="https://www.w3schools.com/w3images/avatar5.png" alt="Avatar" class="avatar"></div>-->
         <form  style="padding: 10px;" action="/login" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" name="username" autofocus>
+                <input type="text" class="form-control" id="username" name="username" autofocus>
             </div>
             
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" name="password" >
+                <input type="password" class="form-control" id="password" name="password" >
             </div>
             <button style="width: 100%;" type="submit" class="btn btn-primary">Login</button>
         </form>

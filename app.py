@@ -52,32 +52,38 @@ def login():
             flash("Invalid username or password")
             return render_template("login.html")
         
-        url = "https://dummyjson.com/auth/login"
+        
+        con = sqlite3.connect("ticketing.db")
+        cur = con.cursor()
 
-        headers = {"Content-Type": "application/json"}
+        userData = cur.execute("""
+                SELECT id, first_name,last_name,password, profile_image 
+                FROM 
+                    users 
+                WHERE 
+                    username = ?
+                ;
+        """,
+        (username,))
 
-        payload = {"username":username,"password":password}
+        res = userData.fetchone()
 
-        authResponse = requests.post(
-            url=url,
-            headers=headers,
-            json=payload,
-            verify=False
-        )
-
-        if not authResponse.ok:
-
+        if res is None:
             flash("Invalid username or password")
-            return redirect('/login')
+            return render_template("login.html")
         
-        authResponseJSON = authResponse.json()
+        hashedPassword = res[3]
+        
+        if check_password_hash(hashedPassword,password):
+            session["user_id"] = res[0]
+            session["first_name"] = res[1]
+            session["last_name"] = res[2]
+            session["profile_pic_url"] = res[4]
 
-        session["first_name"] = authResponseJSON["firstName"]
-        session["last_name"] = authResponseJSON["lastName"]
-        session["profile_pic_url"] = authResponseJSON["image"]
-        session["user_id"]  = authResponseJSON["id"]
+            return redirect("/")
         
-        return redirect("/")
+        flash("Something went wrong. Try again")
+        return render_template("/login")
     
 @app.route("/logout",methods=["POST"])
 @login_required
